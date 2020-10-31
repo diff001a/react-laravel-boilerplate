@@ -6,7 +6,7 @@ A simple docker environment for React and Laravel API.
 
 [こちらの記事を参考にさせていただきました。](https://qiita.com/ucan-lab/items/5fc1281cd8076c8ac9f4)
 
-phpmyadminのコンテナを追加しました。
+上記の記事の内容に加えて、phpmyadminのコンテナを追加しました。
 
 #### Containers
 
@@ -23,7 +23,7 @@ phpmyadminのコンテナを追加しました。
 
 状態管理にはReact Hooksの`contexts`を使用しています。
 
-### Added Packages
+#### Added Packages
 
 - axios
 - react-router-dom
@@ -50,13 +50,17 @@ $ yarn install
 
 ## How to Start
 
+### Backend
+
 ```bash
 $ docker-compose up
 ```
 
+### Frontend
+
 ```bash
 $ cd frontend
-$ yarn Start
+$ yarn start
 ```
 
 ### Migration
