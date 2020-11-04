@@ -12,8 +12,17 @@ function Radio(props) {
     }
   }
 
+  let { color } = props;
+  let color15;
+  if (color) {
+    color15 = rgba(color, 0.15);
+  } else {
+    color = colors.primary;
+    color15 = rgba(colors.primary, 0.15);
+  }
+
   return (
-    <Wrapper className={`md-item ${className}`}>
+    <Wrapper className={`md-item ${className}`} color={color} color15={color15}>
       <input
         id={id}
         type="radio"
@@ -32,17 +41,19 @@ function Radio(props) {
 /* ===============================================
 #  Style
 =============================================== */
-const ripple = keyframes`
-  0% {
-    box-shadow: 0px 0px 0px 1px rgba(255,255,255,0);
-  }
-  50% {
-    box-shadow: 0px 0px 0px 8px ${rgba(colors.primary, 0.15)};
-  }
-  100% {
-    box-shadow: 0px 0px 0px 8px rgba(255,255,255,0);
-  }
-`;
+const ripple = (color) => {
+  return keyframes`
+    0% {
+      box-shadow: 0px 0px 0px 1px rgba(255,255,255,0);
+    }
+    50% {
+      box-shadow: 0px 0px 0px 8px ${color};
+    }
+    100% {
+      box-shadow: 0px 0px 0px 8px rgba(255,255,255,0);
+    }
+  `;
+};
 
 const Wrapper = styled.div`
   display: -webkit-flex;
@@ -86,15 +97,15 @@ const Wrapper = styled.div`
       width: 8px;
       height: 8px;
       transform: scale(0);
-      background: var(--primary);
+      background: ${(props) => props.color || "var(--primary)"};
     }
   }
   input[type="radio"] {
     display: none;
     &:checked + .labelfor_radio {
       &:before {
-        border-color: var(--primary);
-        animation: ${ripple} 0.45s linear forwards;
+        border-color: ${(props) => props.color};
+        animation: ${(props) => ripple(props.color15)} 0.4s ease forwards;
       }
       &:after {
         transform: scale(1);
@@ -110,6 +121,7 @@ Radio.propTypes = {
   id: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
   label: PropTypes.any.isRequired,
+  color: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
   className: PropTypes.string,

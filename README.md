@@ -75,3 +75,11 @@ backend: http://127.0.0.1
 frontend: http://127.0.0.1:3000
 
 phpmyadmin: http://127.0.0.1:8080
+
+## TODO:
+- [x] Modals
+- [x] Tabs
+- [ ] Textarea
+- [ ] Datepicker (Calendar)
+- [ ] Table
+- [ ] Multiple select

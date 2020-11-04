@@ -1,8 +1,8 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import { colors, rgba } from "components/libs/Style/GlobalStyle";
+import { rgba } from "components/libs/Style/GlobalStyle";
 import Wrapper from "./Style.jsx";
-import rippleEffect from "./Ripple.jsx";
+import rippleEffect from "../Style/Ripple.jsx";
 
 /* ===============================================
 # Button
@@ -12,10 +12,10 @@ function Button(props) {
     id,
     name,
     type,
+    color,
     className,
     children,
     onClick,
-    href,
     width,
     height,
     fontSize,
@@ -25,22 +25,6 @@ function Button(props) {
     transparent,
     disabled,
   } = props;
-
-  /* color setting */
-  let { color } = props;
-  if (color === "primary") {
-    color = colors.primary;
-  } else if (color === "warn") {
-    color = colors.warn;
-  } else if (color === "success") {
-    color = colors.success;
-  } else if (color === "danger") {
-    color = colors.danger;
-  } else if (color === "secondary") {
-    color = colors.secondary;
-  } else if (color === "info") {
-    color = colors.info;
-  }
 
   const color10 = rgba(color, 0.1);
   const color20 = rgba(color, 0.2);
@@ -58,9 +42,6 @@ function Button(props) {
     rippleEffect(e);
     if (onClick) {
       onClick(e);
-    }
-    if (href) {
-      window.location.href = href;
     }
   }
 
@@ -97,8 +78,9 @@ function Button(props) {
 #  prop types
 =============================================== */
 Button.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
+  id: PropTypes.any,
+  name: PropTypes.any,
+  className: PropTypes.any,
   type: PropTypes.string,
   width: PropTypes.string,
   height: PropTypes.string,
@@ -111,7 +93,6 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.any,
   onClick: PropTypes.func,
-  href: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -127,7 +108,6 @@ Button.defaultProps = {
   disabled: false,
   children: "",
   onClick: () => {},
-  href: "",
 };
 
 export default Button;

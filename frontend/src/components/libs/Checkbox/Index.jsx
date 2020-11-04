@@ -12,6 +12,7 @@ function Checkbox(props) {
     onChange,
     width,
     height,
+    color,
     className,
   } = props;
 
@@ -29,7 +30,12 @@ function Checkbox(props) {
   }
 
   return (
-    <Wrapper width={width} height={height} className={`md-item ${className}`}>
+    <Wrapper
+      width={width}
+      height={height}
+      className={`md-item ${className}`}
+      color={color}
+    >
       <input
         type="checkbox"
         id={id}
@@ -64,8 +70,8 @@ const Wrapper = styled.div`
   .label_checkbox {
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-    display: block;
     border: 2px solid var(--lightGray);
+    display: block;
     position: absolute;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -92,7 +98,7 @@ const Wrapper = styled.div`
       top: -0.5rem;
       bottom: 0;
       margin: auto;
-      border-color: var(--primary);
+      border-color: ${(props) => props.color || "var(--primary)"};
       border-top-style: none;
       border-right-style: none;
     }
@@ -108,6 +114,7 @@ Checkbox.propTypes = {
   value: PropTypes.any.isRequired,
   width: PropTypes.string,
   height: PropTypes.string,
+  color: PropTypes.string,
   label: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,

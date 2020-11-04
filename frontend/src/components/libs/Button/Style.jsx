@@ -17,8 +17,6 @@ const ripple = keyframes`
 
 const Wrapper = styled.div`
   .md-btn {
-    display: -webkit-flex;
-    display: -ms-flex;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,9 +24,9 @@ const Wrapper = styled.div`
     background: ${(props) => props.color || colors.primary};
     width: ${(props) => props.width || "auto"};
     height: ${(props) => props.height || "40px"};
-    font-size: ${(props) => props.fontSize || ".85em"};
+    font-size: ${(props) => props.fontSize || ".88em"};
+    padding: ${(props) => (props.width ? "0px 5px" : "0px 20px")};
     text-decoration: none;
-    padding: ${(props) => (props.width ? "0px 5px" : "0px 30px")};
     line-height: 1;
     padding-top: 0;
     color: #fff;
@@ -83,12 +81,12 @@ const Wrapper = styled.div`
       line-height: 1;
     }
   }
-  .transparent {
+  .transparent,
+  .border {
     padding: ${(props) => (props.width ? "0px 5px" : "0px 10px")};
-    background: none;
     color: ${(props) => props.color || colors.primary};
+    background: none;
     box-shadow: none;
-    letter-spacing: 0.05rem;
     &:hover {
       box-shadow: none;
       background: ${(props) => props.color10 || rgba(colors.primary, 0.1)};
@@ -98,33 +96,8 @@ const Wrapper = styled.div`
     }
   }
   .border {
-    border: 1px solid ${(props) => props.color || colors.primary};
-    padding: ${(props) => (props.width ? "0px 5px" : "0px 15px")};
-    background: none;
-    color: ${(props) => props.color || colors.primary};
-    box-shadow: none;
-    letter-spacing: 0.05rem;
-    &:hover {
-      box-shadow: none;
-      background: ${(props) => props.color10 || rgba(colors.primary, 0.1)};
-    }
-    .ink {
-      background: ${(props) => props.color20 || rgba(colors.primary, 0.2)};
-    }
-  }
-  &.transparent,
-  &.border {
-    background: none;
-    color: #999;
-    box-shadow: none;
-    &:hover {
-      box-shadow: none;
-      background: none;
-    }
-    .ink {
-      display: block;
-      background: rgba(55, 55, 55, 0.2);
-    }
+    border: 1px solid ${(props) => props.color40 || rgba(colors.primary, 0.4)};
+    padding: ${(props) => (props.width ? "0px 5px" : "0px 20px")};
   }
   .disabled {
     background: #bbb;
@@ -137,8 +110,20 @@ const Wrapper = styled.div`
     }
     &:hover {
       background: #bbb;
-      box-shadow: 0 2px 2px -1px rgba(55, 55, 55, 0.1),
+      box-shadow: 0 2px 2px -1px rgba(88, 88, 88, 0.1),
         0 2px 8px 0px rgba(0, 0, 0, 0.1);
+    }
+    &.transparent,
+    &.border {
+      background: none;
+      color: #999;
+      box-shadow: none;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+    &.border {
+      border: 1px solid #eee;
     }
   }
 `;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { colors } from "components/libs/Style/GlobalStyle";
 import {
   Input,
   Button,
@@ -7,14 +8,29 @@ import {
   Radio,
   Loading,
   Select,
+  Tab,
+  Tabs,
+  TabPanel,
+  Modal,
 } from "components/libs/Index";
 
 const Single = () => {
   const [value, setValue] = useState("");
+  // tab //
+  const [tabActive, setTab] = useState("one");
+  // modal //
+  const [modalActive, setModal] = useState(false);
+  const [confirmModalActive, setConfirmModal] = useState(false);
+  const [successModalActive, setSuccessModal] = useState(false);
+  const [errorModalActive, setErrorModal] = useState(false);
 
   useEffect(() => {
     console.log(value);
   }, [value]);
+
+  function test() {
+    console.log("Hi from single page");
+  }
 
   return (
     <Wrapper>
@@ -114,6 +130,115 @@ const Single = () => {
           <Loading color="#f76e8b" />
         </div>
       </div>
+      <div className="item">
+        <h2>Tabs</h2>
+        <div className="inner">
+          <Tabs align="left">
+            <Tab
+              value="one"
+              onClick={(e) => setTab(e)}
+              active={tabActive === "one"}
+            >
+              aaa
+            </Tab>
+            <Tab
+              value="two"
+              onClick={(e) => setTab(e)}
+              active={tabActive === "two"}
+            >
+              bbb
+            </Tab>
+            <Tab
+              value="three"
+              onClick={(e) => setTab(e)}
+              active={tabActive === "three"}
+            >
+              ccc
+            </Tab>
+          </Tabs>
+          <TabPanel value="one" active={tabActive === "one"}>
+            <span className="inner">tabpanel 1</span>
+          </TabPanel>
+          <TabPanel value="two" active={tabActive === "two"}>
+            <span className="inner">tabpanel 22</span>
+          </TabPanel>
+          <TabPanel value="three" active={tabActive === "three"}>
+            <span className="inner">tabpanel 333</span>
+          </TabPanel>
+        </div>
+      </div>
+      <div className="item">
+        <h2>Modal</h2>
+        <div className="inner">
+          <Button onClick={() => setModal(true)} color="#f76e8b" border>
+            MODAL
+          </Button>
+          <Button
+            onClick={() => setConfirmModal(true)}
+            color={colors.warn}
+            border
+          >
+            CONFIRM
+          </Button>
+          <Button
+            onClick={() => setSuccessModal(true)}
+            color={colors.success}
+            border
+          >
+            SUCCESS
+          </Button>
+          <Button
+            onClick={() => setErrorModal(true)}
+            color={colors.danger}
+            border
+          >
+            ERROR
+          </Button>
+        </div>
+        <Modal
+          title="これがノーマルモーダルです"
+          active={modalActive}
+          toggle={setModal}
+          label="閉じる"
+          height="180px"
+        >
+          アイコンなしのモーダルウィンドウです
+        </Modal>
+        <Modal
+          mode="confirm"
+          active={confirmModalActive}
+          toggle={setConfirmModal}
+          height="300px"
+          title="処理を実行しますか？"
+          label="実行する"
+          cancelLabel="キャンセル"
+          label2="閉じる"
+          title2="処理が完了しました"
+          message="処理が無事完了しました"
+          func={test}
+        >
+          この処理は取り消せません
+        </Modal>
+        <Modal
+          title="処理を実行しました"
+          mode="success"
+          active={successModalActive}
+          toggle={setSuccessModal}
+          label="閉じる"
+        >
+          この処理は無事に完了しました
+        </Modal>
+        <Modal
+          title="処理を中止しました"
+          mode="error"
+          active={errorModalActive}
+          toggle={setErrorModal}
+          label="閉じる"
+          buttonType="transparent"
+        >
+          処理を中断しました
+        </Modal>
+      </div>
     </Wrapper>
   );
 };
@@ -132,12 +257,14 @@ const Wrapper = styled.div`
     }
   }
   .item {
+    width: 100%;
     margin: 30px 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     .inner {
+      width: 100%;
       margin: 10px 0;
       display: flex;
       flex-wrap: wrap;

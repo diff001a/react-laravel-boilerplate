@@ -16,7 +16,7 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className="flex">
+    <form onSubmit={(e) => handleSubmit(e)} className="flex mb-20">
       <Input
         value={state.input}
         width="calc(100% - 130px)"

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useStore, useDispatch } from "contexts/contexts.js";
 import { getTodos } from "actions/actions";
-import { Button } from "components/libs/Index";
+import { Button, Tab, Tabs, TabPanel } from "components/libs/Index";
 import Loading from "components/parts/Loading";
 import Todolist from "components/parts/Todo";
 import Form from "components/parts/Form";
@@ -29,66 +29,44 @@ const Home = () => {
         <span>#</span>TODOS
       </h1>
       <Form />
-      <div className="flex center tabs">
-        <Button
-          className={`tab ${state.show === "all" ? "active" : ""}`}
-          width="100px"
-          onClick={() => switchTabs("all")}
-          transparent
+      <Tabs>
+        <Tab
+          value="all"
+          active={state.show === "all"}
+          onClick={(e) => switchTabs(e)}
         >
           ALL
-        </Button>
-        <Button
-          className={`tab ${state.show === "active" ? "active" : ""}`}
-          width="100px"
-          onClick={() => switchTabs("active")}
-          transparent
+        </Tab>
+        <Tab
+          value="active"
+          active={state.show === "active"}
+          onClick={(e) => switchTabs(e)}
         >
           ACTIVE
-        </Button>
-        <Button
-          className={`tab ${state.show === "done" ? "active" : ""}`}
-          width="100px"
-          onClick={() => switchTabs("done")}
-          transparent
+        </Tab>
+        <Tab
+          value="done"
+          active={state.show === "done"}
+          onClick={(e) => switchTabs(e)}
         >
           DONE
-        </Button>
-      </div>
-      {state.show === "active" ? <Todolist todos={state.active} /> : ""}
-      {state.show === "done" ? <Todolist todos={state.done} /> : ""}
-      {state.show === "all" ? <Todolist todos={state.todos} /> : ""}
+        </Tab>
+      </Tabs>
+      <TabPanel value="all" active={state.show === "all"}>
+        <Todolist todos={state.todos} />
+      </TabPanel>
+      <TabPanel value="active" active={state.show === "active"}>
+        <Todolist todos={state.active} />
+      </TabPanel>
+      <TabPanel value="done" active={state.show === "done"}>
+        <Todolist todos={state.done} />
+      </TabPanel>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   width: 550px;
-  .tabs {
-    width: 100%;
-    border-bottom: 1px solid var(--lightGray);
-    margin: 20px 0 10px 0;
-    .tab {
-      position: relative;
-      &:before {
-        content: "";
-        width: 0;
-        height: 2px;
-        background-color: var(--primary);
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        right: 0;
-        margin: auto;
-        transition: 0.4s ease;
-      }
-      &.active {
-        &:before {
-          width: 100%;
-        }
-      }
-    }
-  }
 `;
 
 export default Home;

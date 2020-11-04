@@ -14,7 +14,11 @@ colors.lightGray = "#ddd";
 colors.gray = "#a9b8bc";
 
 colors.primary = "#feaa2e";
-colors.secondary = "#FFB238";
+colors.secondary = "#f96281";
+colors.danger = "#FF5C55";
+colors.success = "#43d36c";
+colors.warn = "#feaa2e";
+colors.info = "#2490eb";
 
 /* ===============================================
 #  rgba function
