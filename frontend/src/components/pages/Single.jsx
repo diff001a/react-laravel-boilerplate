@@ -12,6 +12,7 @@ import {
   Tabs,
   TabPanel,
   Modal,
+  Slider,
 } from "components/libs/Index";
 
 const Single = () => {
@@ -200,7 +201,7 @@ const Single = () => {
           active={modalActive}
           toggle={setModal}
           label="閉じる"
-          height="180px"
+          height="200px"
         >
           アイコンなしのモーダルウィンドウです
         </Modal>
@@ -239,6 +240,16 @@ const Single = () => {
           処理を中断しました
         </Modal>
       </div>
+      <div className="item">
+        <h2>Slider</h2>
+        <div className="inner">
+          <Slider width="100%" height="300px" autoPlay dots>
+            <div className="slide-item">Slide1</div>
+            <div className="slide-item">Slide2</div>
+            <div className="slide-item">Slide3</div>
+          </Slider>
+        </div>
+      </div>
     </Wrapper>
   );
 };
@@ -273,6 +284,17 @@ const Wrapper = styled.div`
         margin: 5px;
       }
     }
+  }
+  .slide-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 2em;
   }
 `;
 

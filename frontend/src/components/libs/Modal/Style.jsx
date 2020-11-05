@@ -30,10 +30,11 @@ const ModalWrapper = styled.div`
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 9999999;
   }
   .modal-window {
     width: ${(props) => props.width};
@@ -41,7 +42,7 @@ const ModalWrapper = styled.div`
     background: var(--background);
     box-shadow: 0 7px 18px rgba(106, 125, 172, 0.2);
     position: fixed;
-    z-index: 999999;
+    z-index: 99999999;
     display: flex;
     flex-direction: column;
     top: 0;

@@ -6,6 +6,7 @@ import Radio from "./Radio/Index";
 import Select from "./Select/Index";
 import Modal from "./Modal/Index";
 import { Tab, Tabs, TabPanel } from "./Tabs/Index";
+import Slider from "./Slider/Index";
 import GlobalStyle from "./Style/GlobalStyle";
 
 export {
@@ -19,5 +20,6 @@ export {
   Tabs,
   TabPanel,
   Modal,
+  Slider,
   GlobalStyle,
 };

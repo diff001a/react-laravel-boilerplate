@@ -142,7 +142,7 @@ const Wrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999999;
+    z-index: 9999999;
     display: none;
     &.active {
       display: block;

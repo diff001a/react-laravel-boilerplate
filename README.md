@@ -83,3 +83,4 @@ phpmyadmin: http://127.0.0.1:8080
 - [ ] Datepicker (Calendar)
 - [ ] Table
 - [ ] Multiple select
+- [x] Slider
