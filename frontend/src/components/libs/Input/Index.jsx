@@ -13,6 +13,7 @@ const Input = (props) => {
     className,
     value,
     placeholder,
+    defaultValue,
   } = props;
 
   const onChange = (e) => {
@@ -44,6 +45,7 @@ const Input = (props) => {
         name={name}
         type={type}
         value={value}
+        defaultValue={defaultValue}
         onChange={(e) => onChange(e)}
         onFocus={(e) => onFocus(e)}
         onBlur={(e) => onBlur(e)}
@@ -99,6 +101,7 @@ Input.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   className: PropTypes.string,
+  defaultValue: PropTypes.string,
 };
 Input.defaultProps = {
   width: "300px",

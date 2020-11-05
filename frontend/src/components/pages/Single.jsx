@@ -44,17 +44,16 @@ const Single = () => {
         <div className="inner">
           <Input
             placeholder="placeholder"
+            value={value}
             onChange={(e) => setValue(e.target.value)}
+            defaultValue="test"
           />
         </div>
       </div>
       <div className="item">
         <h2>Textarea</h2>
         <div className="inner">
-          <Textarea
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="placeholder"
-          />
+          <Textarea placeholder="placeholder" defaultValue="test2" />
         </div>
       </div>
       <div className="item">
