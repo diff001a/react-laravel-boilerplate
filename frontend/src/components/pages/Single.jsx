@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { colors } from "components/libs/Style/GlobalStyle";
 import {
   Input,
+  Textarea,
   Button,
   Checkbox,
   Radio,
@@ -44,6 +45,15 @@ const Single = () => {
           <Input
             placeholder="placeholder"
             onChange={(e) => setValue(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="item">
+        <h2>Textarea</h2>
+        <div className="inner">
+          <Textarea
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="placeholder"
           />
         </div>
       </div>

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
 const Dots = (props) => {
   const { onNext, onPrev, counter, mode, setCounter, setMode, length } = props;
