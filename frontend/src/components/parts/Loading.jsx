@@ -1,10 +1,10 @@
 import React from "react";
 
-import Loading from "components/libs/Loading/Index";
+import { Loading, colors } from "@diff001a/react-ui-components";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.07);
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -23,7 +23,7 @@ const Home = (props) => {
     <div>
       {isLoading ? (
         <Wrapper className="loading-wrapper">
-          <Loading />
+          <Loading color={colors.primary} />
         </Wrapper>
       ) : (
         ""

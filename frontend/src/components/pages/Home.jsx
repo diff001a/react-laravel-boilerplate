@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useStore, useDispatch } from "contexts/contexts.js";
 import { getTodos } from "actions/actions";
-import { Button, Tab, Tabs, TabPanel } from "components/libs/Index";
+import { Tab, Tabs, TabPanel } from "@diff001a/react-ui-components";
 import Loading from "components/parts/Loading";
 import Todolist from "components/parts/Todo";
 import Form from "components/parts/Form";
@@ -67,6 +67,14 @@ const Home = () => {
 
 const Wrapper = styled.div`
   width: 550px;
+  h1 {
+    margin: 10px 0;
+    span:first-child {
+      color: var(--lightGray);
+      padding-right: 10px;
+    }
+    font-size: 1.5em;
+  }
 `;
 
 export default Home;

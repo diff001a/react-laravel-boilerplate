@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { colors } from "components/libs/Style/GlobalStyle";
 import {
   Input,
   Textarea,
@@ -14,7 +13,8 @@ import {
   TabPanel,
   Modal,
   Slider,
-} from "components/libs/Index";
+  colors,
+} from "@diff001a/react-ui-components";
 
 const Single = () => {
   const [value, setValue] = useState("");
@@ -44,16 +44,17 @@ const Single = () => {
         <div className="inner">
           <Input
             placeholder="placeholder"
-            value={value}
             onChange={(e) => setValue(e.target.value)}
-            defaultValue="test"
           />
         </div>
       </div>
       <div className="item">
         <h2>Textarea</h2>
         <div className="inner">
-          <Textarea placeholder="placeholder" defaultValue="test2" />
+          <Textarea
+            placeholder="placeholder"
+            onChange={(e) => setValue(e.target.value)}
+          />
         </div>
       </div>
       <div className="item">
@@ -210,11 +211,11 @@ const Single = () => {
           active={modalActive}
           toggle={setModal}
           label="閉じる"
-          height="200px"
         >
           アイコンなしのモーダルウィンドウです
         </Modal>
         <Modal
+          icon="confirm"
           mode="confirm"
           active={confirmModalActive}
           toggle={setConfirmModal}
@@ -231,7 +232,7 @@ const Single = () => {
         </Modal>
         <Modal
           title="処理を実行しました"
-          mode="success"
+          icon="success"
           active={successModalActive}
           toggle={setSuccessModal}
           label="閉じる"
@@ -240,7 +241,7 @@ const Single = () => {
         </Modal>
         <Modal
           title="処理を中止しました"
-          mode="error"
+          icon="error"
           active={errorModalActive}
           toggle={setErrorModal}
           label="閉じる"
@@ -265,6 +266,14 @@ const Single = () => {
 
 const Wrapper = styled.div`
   width: 550px;
+  h1 {
+    margin: 20px 0;
+    span:first-child {
+      color: var(--lightGray);
+      padding-right: 10px;
+    }
+    font-size: 1.5em;
+  }
   h2 {
     width: 100%;
     text-align: left;

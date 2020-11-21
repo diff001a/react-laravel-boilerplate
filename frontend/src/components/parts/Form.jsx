@@ -1,7 +1,7 @@
 import React from "react";
 import { useStore, useDispatch } from "contexts/contexts.js";
 import { postTodo } from "actions/actions";
-import { Input, Button } from "components/libs/Index";
+import { Input, Button } from "@diff001a/react-ui-components";
 
 const Form = () => {
   const state = useStore();

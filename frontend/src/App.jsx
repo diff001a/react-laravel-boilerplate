@@ -6,7 +6,7 @@ import { Provider } from "contexts/contexts";
 // components //
 import Home from "components/pages/Home";
 import Single from "components/pages/Single";
-import { GlobalStyle } from "components/libs/Index";
+import { GlobalStyle } from "@diff001a/react-ui-components";
 
 const Layout = styled.div`
   padding: 10px;

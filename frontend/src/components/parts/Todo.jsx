@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "contexts/contexts.js";
 import styled from "styled-components";
-import { Button } from "components/libs/Index";
+import { Button } from "@diff001a/react-ui-components";
 import { toggleTodo, removeTodo } from "actions/actions";
 
 const Icon = styled.b`
